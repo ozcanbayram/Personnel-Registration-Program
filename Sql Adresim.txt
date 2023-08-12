@@ -1,0 +1,4 @@
+Data Source=OZCAN;Initial Catalog=PersonelVeriTabani;Integrated Security=True
+
+
+Not: Bu proje C# öğrenirken pratik yapma amacıyla yapıldı.
