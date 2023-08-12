@@ -1,4 +1,4 @@
-
+Sql Veri Tabanı ve C# ile personel kayıt ve takip sistemi.
 ![1](https://github.com/ozcanbayram/Personnel-Registration-Program/assets/117665864/7cdd5a92-bb00-4f39-bb17-07878f668194)
 ![2](https://github.com/ozcanbayram/Personnel-Registration-Program/assets/117665864/63087b90-df31-453e-b314-6ed24bd7553f)
 ![3](https://github.com/ozcanbayram/Personnel-Registration-Program/assets/117665864/a85c2fdc-9089-44bc-acfd-e8efabc572d6)
