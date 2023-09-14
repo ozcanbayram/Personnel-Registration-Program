@@ -29,6 +29,9 @@ namespace Personel_Kayit
         //Temizleme butonu için bir metot oluşturalım:
         void temizle()
         {
+
+
+
             txtAd.Text = "";
             txtSoyad.Text = "";
             cmbSehir.Text = "";
@@ -59,20 +62,32 @@ namespace Personel_Kayit
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            baglanti.Open();//Sql bağlantısını açıyoruz.
 
-            SqlCommand komut = new SqlCommand("insert into Tbl_Personel (perad,persoyad,persehir,permaas,permeslek,perdurum) values (@p1,@p2,@p3,@p4,@p5,@p6)", baglanti);//Sql'e komut vermek için SqlCommand sınıfından komut isminde bir nesne oluşturduk ve bu nesne ile veri tabanına ekleme yaptık. insert into ile nereye yapacağımızı belirttik(hangi  veri tabanı), daha sornra sütun belirterek köprü görevi görmesi için bunlara parametre atadık(@p1 gibi).
-            komut.Parameters.AddWithValue("@p1", txtAd.Text); //Üst satırda belirtilen komut kullanılarak, parametreler ile veri tabanının sütunlarıyla textBoxlar arasında bir köprü oluşturduk.
-            komut.Parameters.AddWithValue("@p2", txtSoyad.Text);
-            komut.Parameters.AddWithValue("@p3", cmbSehir.Text);
-            komut.Parameters.AddWithValue("@p4", mskMaas.Text);
-            komut.Parameters.AddWithValue("@p5", txtMeslek.Text);
-            komut.Parameters.AddWithValue("@p6", label8.Text);
-            komut.ExecuteNonQuery();//Tabloda değişiklik yapılırken kullanılır. (ekle,sil,Güncelle)
+            try
+            {
+                baglanti.Open();//Sql bağlantısını açıyoruz.
 
-            baglanti.Close();//Sql bağlantısını Kapatıyoruz.
+                SqlCommand komut = new SqlCommand("insert into Tbl_Personel (perad,persoyad,persehir,permaas,permeslek,perdurum) values (@p1,@p2,@p3,@p4,@p5,@p6)", baglanti);//Sql'e komut vermek için SqlCommand sınıfından komut isminde bir nesne oluşturduk ve bu nesne ile veri tabanına ekleme yaptık. insert into ile nereye yapacağımızı belirttik(hangi  veri tabanı), daha sornra sütun belirterek köprü görevi görmesi için bunlara parametre atadık(@p1 gibi).
+                komut.Parameters.AddWithValue("@p1", txtAd.Text); //Üst satırda belirtilen komut kullanılarak, parametreler ile veri tabanının sütunlarıyla textBoxlar arasında bir köprü oluşturduk.
+                komut.Parameters.AddWithValue("@p2", txtSoyad.Text);
+                komut.Parameters.AddWithValue("@p3", cmbSehir.Text);
+                komut.Parameters.AddWithValue("@p4", mskMaas.Text);
+                komut.Parameters.AddWithValue("@p5", txtMeslek.Text);
+                komut.Parameters.AddWithValue("@p6", label8.Text);
+                komut.ExecuteNonQuery();//Tabloda değişiklik yapılırken kullanılır. (ekle,sil,Güncelle)
 
-            MessageBox.Show("Personel Kaydedildi."); //Kaydedildiğine dair ekran çıktısı mesajı.
+                baglanti.Close();//Sql bağlantısını Kapatıyoruz.
+
+                MessageBox.Show("Personel Kaydedildi."); //Kaydedildiğine dair ekran çıktısı mesajı.
+
+            }
+            catch (Exception) //eğer hata verecek bir durum varsa yapılır.
+            {
+                MessageBox.Show("Kaydedilecek verileri eksiksiz giriniz.");
+            }
+
+
+
 
 
         }
@@ -126,28 +141,49 @@ namespace Personel_Kayit
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komutsil = new SqlCommand("Delete From Tbl_Personel where Perid = @k1",baglanti);
-            komutsil.Parameters.AddWithValue("@k1",txtId.Text);
-            komutsil.ExecuteNonQuery(); 
-            baglanti.Close();
-            MessageBox.Show("Kayıt silindi.");
+
+            try
+            {
+
+                baglanti.Open();
+                SqlCommand komutsil = new SqlCommand("Delete From Tbl_Personel where Perid = @k1", baglanti);
+                komutsil.Parameters.AddWithValue("@k1", txtId.Text);
+                komutsil.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Kayıt silindi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Silmek için geçerli veriyi seçin.");
+            }
+
+
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komutguncelle = new SqlCommand("Update Tbl_Personel Set PerAd=@a1, PerSoyad=@a2, PerSehir=@a3, PerMaas=@a4, PerDurum=@a5, PerMeslek=@a6 where Perid=@a7",baglanti);
-            komutguncelle.Parameters.AddWithValue("@a1", txtAd.Text);
-            komutguncelle.Parameters.AddWithValue("@a2", txtSoyad.Text);
-            komutguncelle.Parameters.AddWithValue("@a3", cmbSehir.Text);
-            komutguncelle.Parameters.AddWithValue("@a4", mskMaas.Text);
-            komutguncelle.Parameters.AddWithValue("@a5", label8.Text);
-            komutguncelle.Parameters.AddWithValue("@a6", txtMeslek.Text);
-            komutguncelle.Parameters.AddWithValue("@a7", txtId.Text);
-            komutguncelle.ExecuteNonQuery();
-            baglanti.Close();
-            MessageBox.Show("Bilgiler güncellendi.");
+
+            try
+            {
+                baglanti.Open();
+                SqlCommand komutguncelle = new SqlCommand("Update Tbl_Personel Set PerAd=@a1, PerSoyad=@a2, PerSehir=@a3, PerMaas=@a4, PerDurum=@a5, PerMeslek=@a6 where Perid=@a7", baglanti);
+                komutguncelle.Parameters.AddWithValue("@a1", txtAd.Text);
+                komutguncelle.Parameters.AddWithValue("@a2", txtSoyad.Text);
+                komutguncelle.Parameters.AddWithValue("@a3", cmbSehir.Text);
+                komutguncelle.Parameters.AddWithValue("@a4", mskMaas.Text);
+                komutguncelle.Parameters.AddWithValue("@a5", label8.Text);
+                komutguncelle.Parameters.AddWithValue("@a6", txtMeslek.Text);
+                komutguncelle.Parameters.AddWithValue("@a7", txtId.Text);
+                komutguncelle.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Bilgiler güncellendi.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Güncellemek için geçerli veriyi seçin.");
+            }
+
+           
         }
 
         private void btnIstatistik_Click(object sender, EventArgs e)

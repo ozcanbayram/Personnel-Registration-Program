@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnaForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbSehir = new System.Windows.Forms.TextBox();
             this.mskMaas = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -67,7 +68,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbl_PersonelTableAdapter = new Personel_Kayit.PersonelVeriTabaniDataSetTableAdapters.Tbl_PersonelTableAdapter();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbSehir = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,6 +101,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personel Kayıt";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cmbSehir
+            // 
+            this.cmbSehir.Location = new System.Drawing.Point(229, 213);
+            this.cmbSehir.Name = "cmbSehir";
+            this.cmbSehir.Size = new System.Drawing.Size(206, 31);
+            this.cmbSehir.TabIndex = 15;
             // 
             // mskMaas
             // 
@@ -324,6 +331,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.peridDataGridViewTextBoxColumn,
@@ -350,7 +358,6 @@
             this.peridDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.peridDataGridViewTextBoxColumn.Name = "peridDataGridViewTextBoxColumn";
             this.peridDataGridViewTextBoxColumn.ReadOnly = true;
-            this.peridDataGridViewTextBoxColumn.Width = 125;
             // 
             // perAdDataGridViewTextBoxColumn
             // 
@@ -358,7 +365,6 @@
             this.perAdDataGridViewTextBoxColumn.HeaderText = "PerAd";
             this.perAdDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.perAdDataGridViewTextBoxColumn.Name = "perAdDataGridViewTextBoxColumn";
-            this.perAdDataGridViewTextBoxColumn.Width = 125;
             // 
             // perSoyadDataGridViewTextBoxColumn
             // 
@@ -366,7 +372,6 @@
             this.perSoyadDataGridViewTextBoxColumn.HeaderText = "PerSoyad";
             this.perSoyadDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.perSoyadDataGridViewTextBoxColumn.Name = "perSoyadDataGridViewTextBoxColumn";
-            this.perSoyadDataGridViewTextBoxColumn.Width = 125;
             // 
             // perSehirDataGridViewTextBoxColumn
             // 
@@ -374,7 +379,6 @@
             this.perSehirDataGridViewTextBoxColumn.HeaderText = "PerSehir";
             this.perSehirDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.perSehirDataGridViewTextBoxColumn.Name = "perSehirDataGridViewTextBoxColumn";
-            this.perSehirDataGridViewTextBoxColumn.Width = 125;
             // 
             // perMaasDataGridViewTextBoxColumn
             // 
@@ -382,7 +386,6 @@
             this.perMaasDataGridViewTextBoxColumn.HeaderText = "PerMaas";
             this.perMaasDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.perMaasDataGridViewTextBoxColumn.Name = "perMaasDataGridViewTextBoxColumn";
-            this.perMaasDataGridViewTextBoxColumn.Width = 125;
             // 
             // perDurumDataGridViewCheckBoxColumn
             // 
@@ -390,7 +393,6 @@
             this.perDurumDataGridViewCheckBoxColumn.HeaderText = "PerDurum";
             this.perDurumDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.perDurumDataGridViewCheckBoxColumn.Name = "perDurumDataGridViewCheckBoxColumn";
-            this.perDurumDataGridViewCheckBoxColumn.Width = 125;
             // 
             // perMeslekDataGridViewTextBoxColumn
             // 
@@ -398,7 +400,6 @@
             this.perMeslekDataGridViewTextBoxColumn.HeaderText = "PerMeslek";
             this.perMeslekDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.perMeslekDataGridViewTextBoxColumn.Name = "perMeslekDataGridViewTextBoxColumn";
-            this.perMeslekDataGridViewTextBoxColumn.Width = 125;
             // 
             // tblPersonelBindingSource
             // 
@@ -434,13 +435,6 @@
             this.label8.Text = "Medeni Durum";
             this.label8.Visible = false;
             this.label8.TextChanged += new System.EventHandler(this.label8_TextChanged);
-            // 
-            // cmbSehir
-            // 
-            this.cmbSehir.Location = new System.Drawing.Point(229, 213);
-            this.cmbSehir.Name = "cmbSehir";
-            this.cmbSehir.Size = new System.Drawing.Size(206, 31);
-            this.cmbSehir.TabIndex = 15;
             // 
             // FrmAnaForm
             // 
